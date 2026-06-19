@@ -8,7 +8,8 @@ A modern, responsive administrative dashboard application built with
 ## 📸 Demo
 
 <p align="center">
-<img src="./public/demo.png" alt="Project Demo" width="800">
+<img src="./src/assets/1.png" alt="Project Demo" width="800">
+<img src="./src/assets/2.png" alt="Project Demo" width="800">
 </p>
 
 ------------------------------------------------------------------------
@@ -100,13 +101,13 @@ sizes.
 ### Clone
 
 ``` bash
-git clone https://github.com/paullo-ps/streambi-dashboard.git
+git clone https://github.com/paullo-ps/dashboard.git
 ```
 
 ### Enter the project
 
 ``` bash
-cd streambi-dashboard
+cd dashboard
 ```
 
 ### Install dependencies
