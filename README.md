@@ -1,36 +1,180 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📈 StreamBI - Admin Dashboard
 
-## Getting Started
+[🇺🇸 English](./README.md) \| [🇧🇷 Português](./README.pt-br.md)
 
-First, run the development server:
+A modern, responsive administrative dashboard application built with
+**Next.js 16**, **React 19**, **Tailwind CSS v4**, and **Recharts**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📸 Demo
+
+<p align="center">
+<img src="./public/demo.png" alt="Project Demo" width="800">
+</p>
+
+------------------------------------------------------------------------
+
+## ✨ Features
+
+-   📊 Dynamic data visualization (Area and Pie Charts) with Recharts.
+-   📱 Smart auto-collapsing sidebar using a hybrid CSS + JavaScript
+    approach.
+-   💰 Recent subscriptions table with conditional status badges.
+-   ⚡ Next.js 16 App Router with Turbopack.
+-   🎨 Responsive UI built with Tailwind CSS v4.
+-   🔄 Proper Client Components usage for interactive charts.
+
+------------------------------------------------------------------------
+
+## 🛠️ Technologies
+
+-   Next.js 16 (App Router)
+-   React 19
+-   TypeScript
+-   Tailwind CSS v4
+-   Recharts 3
+-   Lucide React
+-   Yarn
+
+------------------------------------------------------------------------
+
+## 📂 Project Structure
+
+``` text
+src/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── DashboardCharts.tsx
+│   └── Sidebar.tsx
+├── mock/
+│   └── dashboardData.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+------------------------------------------------------------------------
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 💡 Technical Concepts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Client vs. Server Components
 
-## Learn More
+Interactive charts are isolated into Client Components using
+`"use client"` to ensure browser-side rendering where DOM measurements
+are required.
 
-To learn more about Next.js, take a look at the following resources:
+### Hybrid Responsiveness (CSS + JavaScript)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Besides Tailwind responsive utilities, the sidebar automatically
+collapses based on the current viewport width using a resize listener.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+``` tsx
+useEffect(() => {
+  const handleResize = () => {
+    setIsCollapsed(window.innerWidth < 1024);
+  };
 
-## Deploy on Vercel
+  handleResize();
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  window.addEventListener("resize", handleResize);
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  return () =>
+    window.removeEventListener("resize", handleResize);
+}, []);
+```
+
+### Data Visualization
+
+The dashboard uses Recharts to display interactive Area and Pie charts
+with custom gradients, legends and tooltips.
+
+### Responsive Design
+
+The interface follows a mobile-first strategy using CSS Grid and
+Flexbox, adapting KPI cards, charts and tables across different screen
+sizes.
+
+------------------------------------------------------------------------
+
+## 🚀 Getting Started
+
+### Clone
+
+``` bash
+git clone https://github.com/paullo-ps/streambi-dashboard.git
+```
+
+### Enter the project
+
+``` bash
+cd streambi-dashboard
+```
+
+### Install dependencies
+
+Using npm
+
+``` bash
+npm install
+```
+
+Using Yarn
+
+``` bash
+yarn
+```
+
+### Run
+
+Using npm
+
+``` bash
+npm run dev
+```
+
+Using Yarn
+
+``` bash
+yarn dev
+```
+
+Open:
+
+``` text
+http://localhost:3000
+```
+
+------------------------------------------------------------------------
+
+## 📚 What I Learned
+
+-   Next.js 16 App Router.
+-   React 19 ecosystem.
+-   Tailwind CSS v4.
+-   Component-based architecture.
+-   Responsive dashboard layouts.
+-   Recharts data visualization.
+-   TypeScript for scalable applications.
+-   Hybrid responsive UX.
+
+------------------------------------------------------------------------
+
+## 🔮 Future Improvements
+
+-   REST API integration.
+-   GraphQL support.
+-   Authentication.
+-   Dark/Light theme.
+-   Date filters.
+-   Real-time updates.
+-   User management.
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+
+**Paulo Sérgio Mendes dos Santos**
+
+GitHub: https://github.com/paullo-ps
+
+LinkedIn:
+https://www.linkedin.com/in/paulo-s%C3%A9rgio-mendes-dos-santos-914a29200
